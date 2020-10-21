@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Model
 {
-    public class SanphamModel
+    public class SanphamModole
     {
         public int masp { get; set; }
         public string tensp { get; set; }

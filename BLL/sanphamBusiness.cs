@@ -14,31 +14,41 @@ namespace BLL
         {
             _Respo = respo;
         }
-        public List<SanphamModel> Get_ALL_Sanpham()
+        public List<SanphamModole> Get_ALL_Sanpham()
         {
             return _Respo.Get_ALL_Sanpham();
         }
 
        
 
-        public SanphamModel Get_Sanpham_By_ID(int id)
+        public SanphamModole Get_Sanpham_By_ID(int id)
         {
             return _Respo.Get_Sanpham_By_ID(id);
         }
 
-        public List<SanphamModel> Get_Sanpham_lq(int id)
+        public List<SanphamModole> Get_Sanpham_lq(int id)
         {
             return _Respo.Get_Sanpham_lq(id);
         }
 
-        public List<SanphamModel> Get_Sanpham_New()
+        public List<SanphamModole> Get_Sanpham_New()
         {
             return _Respo.Get_Sanpham_New();
         }
 
-        public List<SanphamModel> get_san_pham_by_iddm(int id)
+        public List<SanphamModole> get_san_pham(int pageIndex, int pageSize, out long total, int id_loai)
+        {
+            return _Respo.get_san_pham(pageIndex, pageSize, out total, id_loai);
+        }
+
+        public List<SanphamModole> get_san_pham_by_iddm(int id)
         {
             return _Respo.get_san_pham_by_iddm(id);
+        }
+
+        public List<SanphamModole> get_san_pham_search(int pageIndex, int pageSize, out long total, string search)
+        {
+            return _Respo.get_san_pham_search(pageIndex, pageSize, out total, search);
         }
     }
 }

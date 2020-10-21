@@ -32,9 +32,21 @@ namespace DAL
             }
         }
 
-        public TintucModel Get_Tintuc_By_ID()
+        public TintucModel get_chitiettintuc_by_id(int id)
         {
-            throw new NotImplementedException();
+            string msgError = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_get_chitiettintuc_by_id",
+                     "@ctt_id", id);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<TintucModel>().SingleOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public List<TintucModel> Get_Tintuc_New()
@@ -51,6 +63,11 @@ namespace DAL
             {
                 throw ex;
             }
+        }
+
+        TintucModel ItintucRespo.Get_Tintuc_By_ID()
+        {
+            throw new NotImplementedException();
         }
     }
 }

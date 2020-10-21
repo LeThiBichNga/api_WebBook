@@ -15,7 +15,7 @@ namespace DAL
         {
             _dbHelper = databaseHelper;
         }
-        public List<SanphamModel> Get_ALL_Sanpham()
+        public List<SanphamModole> Get_ALL_Sanpham()
         {
             string msgError = "";
             try
@@ -23,7 +23,7 @@ namespace DAL
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_sanpham_all");
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
-                return dt.ConvertTo<SanphamModel>().ToList();
+                return dt.ConvertTo<SanphamModole>().ToList();
             }
             catch (Exception ex)
             {
@@ -33,7 +33,7 @@ namespace DAL
 
        
 
-        public SanphamModel Get_Sanpham_By_ID(int id)
+        public SanphamModole Get_Sanpham_By_ID(int id)
         {
             string msgError = "";
             try
@@ -42,7 +42,7 @@ namespace DAL
                      "@item_id", id);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
-                return dt.ConvertTo<SanphamModel>().FirstOrDefault();
+                return dt.ConvertTo<SanphamModole>().FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -50,7 +50,7 @@ namespace DAL
             }
         }
 
-        public List<SanphamModel> Get_Sanpham_lq(int id)
+        public List<SanphamModole> Get_Sanpham_lq(int id)
         {
             string msgError = "";
             try
@@ -58,7 +58,7 @@ namespace DAL
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_sanpham_lq", "@l_id", id);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
-                return dt.ConvertTo<SanphamModel>().ToList();
+                return dt.ConvertTo<SanphamModole>().ToList();
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ namespace DAL
             }
         }
 
-        public List<SanphamModel> Get_Sanpham_New()
+        public List<SanphamModole> Get_Sanpham_New()
         {
             string msgError = "";
             try
@@ -74,7 +74,7 @@ namespace DAL
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_sanpham_new");
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
-                return dt.ConvertTo<SanphamModel>().ToList();
+                return dt.ConvertTo<SanphamModole>().ToList();
             }
             catch (Exception ex)
             {
@@ -82,7 +82,7 @@ namespace DAL
             }
         }
 
-        public List<SanphamModel> get_san_pham_by_iddm(int id)
+        public List<SanphamModole> get_san_pham_by_iddm(int id)
         {
             string msgError = "";
             try
@@ -90,7 +90,7 @@ namespace DAL
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "get_san_pham_by_iddm", "@iddm", id);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
-                return dt.ConvertTo<SanphamModel>().ToList();
+                return dt.ConvertTo<SanphamModole>().ToList();
             }
             catch (Exception ex)
             {
@@ -98,9 +98,47 @@ namespace DAL
             }
         }
 
-        public List<SanphamModel> get_san_pham_by_iddm()
+        public List<SanphamModole> get_san_pham_by_iddm()
         {
             throw new NotImplementedException();
+        }
+
+        public List<SanphamModole> get_san_pham(int pageIndex, int pageSize, out long total, int id_loai)
+        {
+            string msgError = "";
+            total = 0;
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_item_search", "@page_index", pageIndex, "@page_size", pageSize, "@item_group_id", id_loai);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                if (dt.Rows.Count > 0)
+                    total =  (long)dt.Rows[0]["RecordCount"];
+                return dt.ConvertTo<SanphamModole>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<SanphamModole> get_san_pham_search(int pageIndex, int pageSize, out long total, string search)
+        {
+            string msgError = "";
+            total = 0;
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_item_search_2", "@page_index", pageIndex, "@page_size", pageSize, "@search", search);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                if (dt.Rows.Count > 0)
+                    total = (long)dt.Rows[0]["RecordCount"];
+                return dt.ConvertTo<SanphamModole>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

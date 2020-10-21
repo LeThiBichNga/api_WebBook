@@ -18,6 +18,7 @@ namespace API.Controllers
         {
             _IBusiness = _IBusine;
         }
+
         [Route("get_tin_tuc")]
         [HttpGet]
         public List<TintucModel> GET_ALL_TIN_TUC()
@@ -29,6 +30,12 @@ namespace API.Controllers
         public List<TintucModel> Get_tintuc()
         {
             return _IBusiness.Get_tintuc_new();
+        }
+        [Route("get_chitiettintuc_by_id/{id}")]
+        [HttpGet]
+        public TintucModel get_chitiettintuc_by_id(int id)
+        {
+            return _IBusiness.get_chitiettintuc_by_id(id);
         }
     }
 }

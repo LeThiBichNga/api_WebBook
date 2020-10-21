@@ -10,5 +10,6 @@ namespace DAL.Interfaces
         List<TintucModel> Get_ALL_Tintuc();
         TintucModel Get_Tintuc_By_ID();
         List<TintucModel> Get_Tintuc_New();
+        TintucModel get_chitiettintuc_by_id(int id);
     }
 }

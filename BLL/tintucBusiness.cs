@@ -14,19 +14,28 @@ namespace BLL
         {
             _Respo = respo;
         }
-        public List<TintucModel> Get_ALL_Tintuc()
-        {
-            return _Respo.Get_ALL_Tintuc();
-        }
 
-        public TintucModel Get_Tintuc_By_ID()
-        {
-            throw new NotImplementedException();
-        }
 
         public List<TintucModel> Get_tintuc_new()
         {
             return _Respo.Get_Tintuc_New();
         }
+
+        List<TintucModel> ItintucBusiness.Get_ALL_Tintuc()
+        {
+            return _Respo.Get_ALL_Tintuc();
+        }
+
+        TintucModel ItintucBusiness.get_chitiettintuc_by_id(int id)
+        {
+            return _Respo.get_chitiettintuc_by_id(id);
+        }
+
+        TintucModel ItintucBusiness.Get_Tintuc_By_ID()
+        {
+            return _Respo.Get_Tintuc_By_ID();
+        }
+
+      
     }
 }
