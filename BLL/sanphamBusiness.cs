@@ -14,39 +14,39 @@ namespace BLL
         {
             _Respo = respo;
         }
-        public List<SanphamModole> Get_ALL_Sanpham()
+        public List<SanphamModel> Get_ALL_Sanpham()
         {
             return _Respo.Get_ALL_Sanpham();
         }
 
        
 
-        public SanphamModole Get_Sanpham_By_ID(int id)
+        public SanphamModel Get_Sanpham_By_ID(int id)
         {
             return _Respo.Get_Sanpham_By_ID(id);
         }
 
-        public List<SanphamModole> Get_Sanpham_lq(int id)
+        public List<SanphamModel> Get_Sanpham_lq(int id)
         {
             return _Respo.Get_Sanpham_lq(id);
         }
 
-        public List<SanphamModole> Get_Sanpham_New()
+        public List<SanphamModel> Get_Sanpham_New()
         {
             return _Respo.Get_Sanpham_New();
         }
 
-        public List<SanphamModole> get_san_pham(int pageIndex, int pageSize, out long total, int id_loai)
+        public List<SanphamModel> get_san_pham(int pageIndex, int pageSize, out long total, int id_loai)
         {
             return _Respo.get_san_pham(pageIndex, pageSize, out total, id_loai);
         }
 
-        public List<SanphamModole> get_san_pham_by_iddm(int id)
+        public List<SanphamModel> get_san_pham_by_iddm(int id)
         {
             return _Respo.get_san_pham_by_iddm(id);
         }
 
-        public List<SanphamModole> get_san_pham_search(int pageIndex, int pageSize, out long total, string search)
+        public List<SanphamModel> get_san_pham_search(int pageIndex, int pageSize, out long total, string search)
         {
             return _Respo.get_san_pham_search(pageIndex, pageSize, out total, search);
         }

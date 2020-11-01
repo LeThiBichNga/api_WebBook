@@ -15,6 +15,23 @@ namespace DAL
         {
             _dbHelper = databaseHelper;
         }
+
+        public KhachhangModel Check_login(string email, string pass)
+        {
+            string msgError = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "check_login", "@username",email, "@password",pass);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<KhachhangModel>().SingleOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<KhachhangModel> Get_ALL_Khachhang()
         {
             string msgError = "";

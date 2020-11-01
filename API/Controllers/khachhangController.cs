@@ -25,5 +25,11 @@ namespace API.Controllers
         {
             return _IBusiness.Get_ALL_Khachhang();
         }
+        [Route("Check_login")]
+        [HttpGet]
+        public KhachhangModel Check_login(string email, string pass)
+        {
+            return _IBusiness.Check_login(email, pass);
+        }
     }
 }
