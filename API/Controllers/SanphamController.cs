@@ -43,7 +43,7 @@ namespace API.Controllers
             //{
             //    return null;
             //}
-            return _IBusiness.Get_Sanpham_By_ID(id);0
+            return _IBusiness.Get_Sanpham_By_ID(id);
         }
         [Route("Get_Sanpham_lq/{id}")]
         [HttpGet]
