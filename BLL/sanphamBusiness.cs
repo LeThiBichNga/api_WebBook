@@ -14,12 +14,21 @@ namespace BLL
         {
             _Respo = respo;
         }
+
+        public bool create_san_pham(SanphamModel sp)
+        {
+            return _Respo.create_san_pham(sp);
+        }
+
+        public bool delete_san_pham(int id)
+        {
+            return _Respo.delete_san_pham(id);
+        }
+
         public List<SanphamModel> Get_ALL_Sanpham()
         {
             return _Respo.Get_ALL_Sanpham();
         }
-
-       
 
         public SanphamModel Get_Sanpham_By_ID(int id)
         {
@@ -49,6 +58,11 @@ namespace BLL
         public List<SanphamModel> get_san_pham_search(int pageIndex, int pageSize, out long total, string search)
         {
             return _Respo.get_san_pham_search(pageIndex, pageSize, out total, search);
+        }
+
+        public bool update_san_pham(int id, SanphamModel sp)
+        {
+            return _Respo.update_san_pham(id, sp);
         }
     }
 }

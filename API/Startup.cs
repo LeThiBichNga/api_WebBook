@@ -44,6 +44,10 @@ namespace API
             services.AddTransient<IloaisanphamRespo, loaisanphamRespo>();
             services.AddTransient<ItintucBusiness, TintucBusiness>();
             services.AddTransient<ItintucRespo, TintucRespo>();
+            services.AddTransient<IthongkeBusiness, ThongkeBusiness>();
+            services.AddTransient<IthongkeRespo, ThongkeRespo>();
+            services.AddTransient<IhoadonBusiness, HoadonBusiness>();
+            services.AddTransient<IhoadonRespo, HoadonRespo>();
           
         }
 

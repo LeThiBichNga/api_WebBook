@@ -16,6 +16,7 @@ namespace DAL
             _dbHelper = databaseHelper;
         }
 
+      
         public List<TintucModel> Get_ALL_Tintuc()
         {
             string msgError = "";
@@ -62,6 +63,47 @@ namespace DAL
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+          public bool create_tin_tuc(TintucModel tt)
+        {
+            try
+            {
+                string msgErr = "";
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgErr, "create_tin_tuc", "@tieude", tt.tieude, "@hinhanh", tt.hinhanh, "@tomtat", tt.tomtat, "@noidung", tt.noidung, "@ngaydang", tt.ngaydang);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool delete_tin_tuc(int id)
+        {
+            try
+            {
+                string msgErr = "";
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgErr, "delete_tin_tuc", "@matt", id);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool update_tin_tuc(int id, TintucModel tt)
+        {
+            try
+            {
+                string msgErr = "";
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgErr, "update_tin_tuc", "@matt", tt.matt, "@tieude", tt.tieude, "@hinhanh", tt.hinhanh, "@tomtat", tt.tomtat, "@noidung", tt.noidung, "@ngaydang", tt.ngaydang);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 

@@ -6,8 +6,8 @@ namespace Model
 {
     public class chitietdonhangModel
     {
-        public int manctdh { get; set; }
-        public int madh{ get; set; }
+        public string manctdh { get; set; }
+        public string madh{ get; set; }
         public int masp { get; set; }
         public int soluong { get; set; }
         public int gia { get; set; }

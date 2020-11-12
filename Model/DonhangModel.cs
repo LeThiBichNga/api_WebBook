@@ -11,7 +11,7 @@ namespace Model
         public int tinhtrang { get; set; }
         public string tenkh { get; set; }
         public string noigia { get; set; }
-        public int sdt { get; set; }
+        public string sdt { get; set; }
         public int thanhtien { get; set; }
 
 

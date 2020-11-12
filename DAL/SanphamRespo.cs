@@ -140,5 +140,47 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public bool create_san_pham(SanphamModel sp)
+        {
+            try
+            {
+                string msgErr = "";
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgErr, "create_san_pham", "@tensp", sp.tensp, "@tacgia", sp.tacgia, "@gia", sp.gia,"@soluong", sp.soluong,"@anh", sp.anh,"@ngaynhap", sp.ngaynhap,"@maloai", sp.maloai,"@luotmua", sp.luotmua,"@motangan", sp.motangan,"@mota", sp.mota,"@rate", sp.rate);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool update_san_pham(int id, SanphamModel sp)
+        {
+            try
+            {
+                string msgErr = "";
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgErr, "update_san_pham_3", "@masp", sp.masp,"@tensp", sp.tensp, "@tacgia", sp.tacgia, "@gia", sp.gia, "@soluong", sp.soluong, "@anh", sp.anh, "@maloai", sp.maloai, "@motangan", sp.motangan, "@mota", sp.mota);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool delete_san_pham(int id)
+        {
+            try
+            {
+                string msgErr = "";
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgErr, "delete_san_pham", "@masp", id);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

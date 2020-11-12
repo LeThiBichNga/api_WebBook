@@ -15,10 +15,24 @@ namespace BLL
             _Respo = respo;
         }
 
+        public bool create_tin_tuc(TintucModel tt)
+        {
+            return _Respo.create_tin_tuc(tt);
+        }
+
+        public bool delete_tin_tuc(int id)
+        {
+            return _Respo.delete_tin_tuc(id);
+        }
 
         public List<TintucModel> Get_tintuc_new()
         {
             return _Respo.Get_Tintuc_New();
+        }
+
+        public bool update_tin_tuc(int id, TintucModel tt)
+        {
+            return _Respo.update_tin_tuc(id, tt);
         }
 
         List<TintucModel> ItintucBusiness.Get_ALL_Tintuc()

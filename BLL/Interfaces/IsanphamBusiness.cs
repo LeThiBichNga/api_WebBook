@@ -14,5 +14,8 @@ namespace BLL.Interfaces
         List<SanphamModel> get_san_pham_by_iddm(int id);
         List<SanphamModel> get_san_pham(int pageIndex, int pageSize, out long total, int id_loai);
         List<SanphamModel> get_san_pham_search(int pageIndex, int pageSize, out long total, string search);
+        bool create_san_pham(SanphamModel sp);
+        bool update_san_pham(int id, SanphamModel sp);
+        bool delete_san_pham(int id);
     }
 }
